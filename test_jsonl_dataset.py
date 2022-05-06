@@ -4,9 +4,7 @@
 # LICENSE file in the root directory of this source tree.
 
 import json
-import os
-import random
-import string
+import o
 import tempfile
 import unittest
 from unittest.mock import MagicMock
@@ -38,8 +36,6 @@ class TestJsonlDataset(unittest.TestCase):
             write_one_jsonl_(jsonl_file.name, num_lines=3)
             dataset = JsonlDataset(jsonl_file.name)
             assert len(dataset) == 3
-
-            write_one_jsonl_(jsonl_file.name, num_lines=5)
             dataset = JsonlDataset(jsonl_file.name)
             assert len(dataset) == 3  # it's still 3 because of the cache
 
